@@ -1,0 +1,25 @@
+# Render Blueprint for the StudyCircle API (Express + Socket.io need a host that keeps
+# WebSocket connections open, which Vercel's serverless functions cannot do).
+# Render dashboard → New → Blueprint → pick this repo. Fill in the "sync: false" values when asked.
+services:
+  - type: web
+    name: studycircle-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/index.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URL
+        sync: false # MongoDB Atlas connection string
+      - key: CLIENT_ORIGIN
+        sync: false # your Vercel URL, e.g. https://studycircle.vercel.app
+      - key: CLOUDINARY_URL
+        sync: false # cloudinary://<key>:<secret>@<cloud_name>

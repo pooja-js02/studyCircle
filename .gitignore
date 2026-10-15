@@ -1,0 +1,24 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+uploads/
+
+# Secrets: keys and passwords (Atlas, Cloudinary, JWT) live only in these files.
+# Every folder's .env is ignored; only the .env.example templates are committed.
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+secrets/
+
+# Private documents kept out of the public repo
+docs/StudyCircle UI*.pdf
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.log

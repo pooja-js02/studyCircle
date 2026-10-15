@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+  button, input, select, textarea {
+    font: inherit;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-600 ring-offset-2 ring-offset-canvas;
+  }
+  /* NFR-USE-04 */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.62);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    @apply shadow-glass;
+  }
+  .solid {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-2xl px-5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow-cta hover:bg-brand-700;
+  }
+  .btn-secondary {
+    @apply btn solid text-ink hover:bg-white;
+  }
+  .btn-ghost {
+    @apply btn text-ink-soft hover:bg-white/70;
+  }
+  .btn-danger {
+    @apply btn border border-red-200 bg-red-50 text-red-700 hover:bg-red-100;
+  }
+  .btn-success {
+    @apply btn bg-emerald-600 text-white hover:bg-emerald-700;
+  }
+  .btn-sm {
+    @apply min-h-[36px] rounded-xl px-3 text-xs;
+  }
+  .input {
+    @apply solid w-full rounded-2xl px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ink-soft;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:shadow-lift;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.08em] text-ink-faint;
+  }
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(15, 23, 42, 0.18) transparent;
+  }
+}
+
+/* Rendered Markdown notes (no raw HTML is ever rendered: NFR-SEC-05) */
+.prose-note {
+  @apply text-[15px] leading-relaxed text-ink;
+}
+.prose-note h1 { @apply mb-3 mt-1 text-2xl font-bold; }
+.prose-note h2 { @apply mb-2 mt-5 text-xl font-semibold; }
+.prose-note h3 { @apply mb-2 mt-4 text-lg font-semibold; }
+.prose-note p { @apply my-2; }
+.prose-note ul { @apply my-2 list-disc pl-6; }
+.prose-note ol { @apply my-2 list-decimal pl-6; }
+.prose-note li { @apply my-1; }
+.prose-note a { @apply font-medium text-brand-700 underline; }
+.prose-note blockquote { @apply my-3 rounded-r-xl border-l-4 border-brand-200 bg-brand-50/70 px-4 py-2 text-ink-soft; }
+.prose-note code { @apply rounded-md bg-slate-100 px-1.5 py-0.5 text-[13px]; }
+.prose-note pre { @apply my-3 overflow-x-auto rounded-xl bg-slate-900 p-4 text-slate-100; }
+.prose-note pre code { @apply bg-transparent p-0 text-slate-100; }
+.prose-note table { @apply my-3 w-full border-collapse overflow-hidden rounded-xl text-sm; }
+.prose-note th { @apply border-b border-slate-200 bg-slate-50 px-3 py-2 text-left font-semibold; }
+.prose-note td { @apply border-b border-slate-100 px-3 py-2; }
+.prose-note hr { @apply my-5 border-slate-200; }
