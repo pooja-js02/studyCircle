@@ -4,12 +4,6 @@ Private, admin-approved study groups for Indian exam aspirants (JEE, NEET, UPSC,
 
 **Live demo:** _add your Vercel URL here_. Click **Try the demo account** on the login page to explore as a group admin with chat, notes and join requests already waiting.
 
-![Group chat](docs/screenshots/group-chat.png)
-
-| Discover groups | Manage members | On a phone |
-| --- | --- | --- |
-| ![Discover](docs/screenshots/discover.png) | ![Manage](docs/screenshots/manage-group.png) | ![Phone](docs/screenshots/phone.png) |
-
 ## What it does (V1)
 
 - **Accounts:** sign up with a Gmail address and an Indian mobile number (+91, 10 digits). Passwords are bcrypt-hashed and sessions use 7-day JWTs.
